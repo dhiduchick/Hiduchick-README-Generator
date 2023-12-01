@@ -152,6 +152,32 @@ const questions = [
             }
         } 
     },
+    {
+        type: 'input',
+        name: 'author',
+        message: 'What is your name?(Required)',
+        validate: testInput => {
+            if (testInput){
+                return true;
+            }else{
+                console.log('Please provide your name.');
+                return false;
+            }
+        } 
+    },
+    {
+        type: 'input',
+        name: 'URL',
+        message: 'Please provide the URL of the live site(Required)',
+        validate: testInput => {
+            if (testInput){
+                return true;
+            }else{
+                console.log('Please provide URL.');
+                return false;
+            }
+        } 
+    },
 
 ];
 
