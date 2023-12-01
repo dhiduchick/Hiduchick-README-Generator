@@ -115,7 +115,10 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Which license will you use for this project?',
-        choices: ['agpl', 'apache', 'mit','no license']
+        choices: ['GPL',
+         'APACHE',
+         'MIT',
+         'No License']
     },
     {
         type: 'confirm',
@@ -152,8 +155,16 @@ const questions = [
 
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Function to write README file
+function writeToFile(fileName, data) {
+    let contect =generateMarkdown(data);
+    fs.writeFile(fileName, content, function (error){
+        if (error){
+            return console.log(error)
+        }
+        console.log('success')
+    });
+}
 
 // TODO: Create a function to initialize app
 function init() {}
