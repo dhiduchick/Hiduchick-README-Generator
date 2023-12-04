@@ -77,7 +77,7 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ## [License](#table-of-contents)
-  This projected is under the ${data.license} license.
+  This project is under the ${data.license} license.
 
   ## [Test](#table-of-contents)
   To execute test on this project follows these steps 
