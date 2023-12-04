@@ -130,6 +130,13 @@ const questions = [
         type: 'input',
         name: 'contrubute',
         message: 'Please provide contribution guidelines.(Required)',
+        when: ({confirmContributers}) => {
+            if (confirmContributers) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         validate: contributeInput=> {
             if (contributeInput){
                 return true;
@@ -138,11 +145,12 @@ const questions = [
                 return false;
             }
         } 
+        
     },
     {
         type: 'input',
         name: 'test',
-        message: 'Please provide instruction on how to text the application.(Required)',
+        message: 'Please provide instruction on how to test the application.(Required)',
         validate: testInput => {
             if (testInput){
                 return true;
@@ -156,8 +164,8 @@ const questions = [
         type: 'input',
         name: 'author',
         message: 'What is your name?(Required)',
-        validate: testInput => {
-            if (testInput){
+        validate: authorInput => {
+            if (authorInput){
                 return true;
             }else{
                 console.log('Please provide your name.');
@@ -169,35 +177,42 @@ const questions = [
         type: 'input',
         name: 'URL',
         message: 'Please provide the URL of the live site(Required)',
-        validate: testInput => {
-            if (testInput){
+        validate: urlInput => {
+            if (urlInput){
                 return true;
             }else{
                 console.log('Please provide URL.');
                 return false;
             }
         } 
-    },
+    }
 
 ];
 
-// Function to write README file
-function writeToFile(fileName, data) {
-    let contect =generateMarkdown(data);
-    fs.writeFile(fileName, content, function (error){
-        if (error){
-            return console.log(error)
-        }
-        console.log('success')
-    });
-}
+// function to write README file
+const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./generated/README.md', fileContent, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
 
-// Function to initialize app
-function init() {
-    inquirer.createPromptModule(questions).then(function(data){
-        const fileName = 'README.md';
-        writeToFile(fileName, data)
+            resolve({
+                ok: true,
+                message: 'File created!'
+            });
+        });
     });
+};
+
+// function to prompt questions and store user inputs
+const init = () => {
+
+    return inquirer.prompt(questions)
+    .then(readmeData => {
+        return readmeData;
+    })
 }
 
 // Function call to initialize app
@@ -207,7 +222,7 @@ init()
     return generateMarkdown(readmeData);
 })
 .then(pageMD => {
-    return fs.writeFile(pageMD);
+    return writeFile(pageMD);
 })
 .then(writeFileResponse => {
     console.log(writeFileResponse.message);
