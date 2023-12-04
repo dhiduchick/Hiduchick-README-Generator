@@ -51,46 +51,46 @@ function generateMarkdown(data) {
   ![${data.license}](https://img.shields.io/badge/license-${data.license}-green)
 
   ## Table of Contents
-  * [Description] (#description)
+  * [Description](#description)
   * [Installation](#installation)
-  * [Usage] (#usage)
-  * [License] (#license)
-  * [Test] (#test)
-  * [Contributing] (#contributing)
-  * [Questions] (#questions)
-  * [Author] (#author)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Test](#test)
+  * [Contributing](#contributing)
+  * [Questions](#questions)
+  * [Author](#author)
   
-  ## Description (#table-of-contents)
+  ## [Description](#table-of-contents)
   ${data.description}
 
   ${data.why}
   
   ${data.how}
 
-  ##Installation (#table-of-contents)
+  ## [Installation](#table-of-contents)
   To install the project run the following steps.
   ${data.install}
 
   The live like to the appplication is ${data.url}
 
-  ##Usage (#table-of-contents)
+  ## [Usage](#table-of-contents)
   ${data.usage}
 
-  ##License (#table-of-contents)
+  ## [License](#table-of-contents)
   This projected is under the ${data.license} license.
 
-  ##Test (#table-of-contents)
+  ## [Test](#table-of-contents)
   To execute test on this project follows these steps 
   ${data.test}
 
-  ##Contributing (#table-of-contents)
+  ## [Contributing](#table-of-contents)
   These are the guidelines when it comes to contributing to this repo.
   ${data.contribute}
 
-  ##Questions (#table-of-contents)
+  ## [Questions](#table-of-contents)
   If you have any questions about this repo, open an issue or contact me directly at [${data.email}](mailto:${data.email}). You can find more of my work at [${data.username}](https://www.github.com/${data.username}).
 
-  ##Author (#table-of-contents)
+  ## [Author](#table-of-contents)
   This repo was created with love by ${data.author}
 `;
 }

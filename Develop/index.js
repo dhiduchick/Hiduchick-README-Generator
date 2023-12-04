@@ -88,7 +88,7 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Please provide step-by-step installation unstructions for your project. (Required)',
+        message: 'Please provide step-by-step installation instructions for your project. (Required)',
         validate: installInput => {
             if (installInput){
                 return true;
