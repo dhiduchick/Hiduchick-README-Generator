@@ -34,14 +34,6 @@ function renderLicenseSection(license) {
   }
 }
 
-function renderLicenseTOC(license) {
-  if (license !== 'No License') {
-    return ` * [License](#license)`;
-  }else {
-    return ' ';
-  }
-}
-
 //Function to return message if the user does not want contributors 
 function renderContributingSection(confirmContributers, data) {
   if(!confirmContributers) {
@@ -51,11 +43,52 @@ function renderContributingSection(confirmContributers, data) {
   }
 }
 
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
+  ![${data.license}](https://img.shields.io/badge/license-${data.license}-green)
+
+  ## Table of Contents
+  * [Description] (#description)
+  * [Installation](#installation)
+  * [Usage] (#usage)
+  * [License] (#license)
+  * [Test] (#test)
+  * [Contributing] (#contributing)
+  * [Questions] (#questions)
+  * [Author] (#author)
   
+  ## Description
+  ${data.description}
+  ${data.why}
+  ${data.how}
+
+  ##Installation 
+  To install the project run the following steps.
+  ${data.install}
+
+  The live like to the appplication is ${data.url}
+
+  ##Usage
+  ${data.usage}
+
+  ##License
+  This projected is under the ${data.license} license.
+
+  ##Test
+  To execute test on this project follows these steps 
+  ${data.test}
+
+  ##Contributing
+  These are the guidelines when it comes to contributing to this repo.
+  ${data.contribute}
+
+  ##Questions
+  If you have any questions about this repo, open an issue or contact me directly at [${data.email}](mailto:${data.email}). You can find more of my work at [${data.username}](https://www.github.com/${data.username}).
+
+  ##Author
+  This repo was created with love by ${data.author}
 `;
 }
 
