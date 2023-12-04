@@ -34,6 +34,14 @@ function renderLicenseSection(license) {
   }
 }
 
+function renderLicenseTOC(license) {
+  if (license !== 'No License') {
+    return ` * [License](#license)`;
+  }else {
+    return ' ';
+  }
+}
+
 //Function to return message if the user does not want contributors 
 function renderContributingSection(confirmContributers, data) {
   if(!confirmContributers) {
@@ -47,6 +55,7 @@ function renderContributingSection(confirmContributers, data) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
+  
 `;
 }
 
